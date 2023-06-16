@@ -1,12 +1,13 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import ForgetPassword from "./components/ForgetPassword";
 import UpdateProfile from "./components/UpdateProfile";
 import DashBoard from "./components/DashBoard";
 import AuthContextProvider from "./contextApi/AuthContext";
+import ReqAuthContext from "./contextApi/ReqAuthContext";
 
 const App = () => {
   return (
@@ -30,17 +31,9 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <>
-                    Stop At :
-                    <Link to="https://youtu.be/xv5PrW481hw?list=PLCrPioFXyfwJMXCRtdRaBOLWNIjxu3VSf">
-                      Go
-                    </Link>
-                    <Link to="https://console.firebase.google.com/u/0/project/react-firebase-auth-ismaeinz/settings/general/web:ZTZhZjQ0ZTUtNzA3Ny00NWNiLWEzOWUtODU1OGU0ZjFlZDcw">
-                      Firebase
-                    </Link>
-                    <hr />
+                  <ReqAuthContext>
                     <DashBoard />
-                  </>
+                  </ReqAuthContext>
                 }
               />
             </Routes>
